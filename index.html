@@ -61,27 +61,23 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.4;margin:0;}
   letter-spacing:.06em;white-space:nowrap;
 }
 .leg .code{font-size:.78rem;color:var(--navy-soft);letter-spacing:.1em;}
-/* ---------- island map (signature) ---------- */
-.island{margin:48px auto 0;max-width:620px;}
-.island svg{width:100%;height:auto;display:block;overflow:visible;}
-.coast{fill:rgba(170,201,232,.16);stroke:var(--mist);stroke-width:1.6;}
-.route{
-  fill:none;stroke:var(--sage);stroke-width:2;stroke-linecap:round;
-  stroke-dasharray:5 7;
-  animation:drift 40s linear infinite;
+/* ---------- map ---------- */
+.mapbox{
+  margin:44px auto 0;max-width:660px;background:var(--pearl);
+  border:1px solid var(--line);border-radius:3px;overflow:hidden;
 }
-@keyframes drift{to{stroke-dashoffset:-480;}}
-.node circle{fill:#fff;stroke:var(--wisteria);stroke-width:2.4;}
-.node .core{fill:var(--wisteria);stroke:none;}
-.node text{
-  font-family:var(--sans);font-size:12.5px;fill:var(--navy);
-  letter-spacing:.06em;
-}
-.node .num{font-family:var(--serif);font-size:11px;fill:var(--wisteria);}
+.mapbox iframe{display:block;width:100%;height:400px;border:0;}
 .map-cap{
   text-align:center;margin-top:14px;font-size:.8rem;
   color:var(--navy-soft);letter-spacing:.08em;
 }
+.pins{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px;}
+.pins a{
+  padding:5px 13px;border:1px solid var(--line);border-radius:999px;
+  background:#fff;font-size:.78rem;letter-spacing:.06em;
+  color:var(--sea);text-decoration:none;
+}
+.pins a:hover{border-color:var(--wisteria);color:var(--wisteria);}
 /* ---------- sections ---------- */
 section{padding:60px 0;}
 .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:34px;}
@@ -108,6 +104,7 @@ section{padding:60px 0;}
   flex:0 0 62px;font-size:.82rem;color:var(--wisteria);
   letter-spacing:.06em;padding-top:3px;
 }
+.s-body{flex:1;min-width:0;}
 .stop h4{
   margin:0 0 5px;font-family:var(--serif);font-weight:600;
   font-size:1rem;letter-spacing:.03em;
@@ -124,6 +121,46 @@ section{padding:60px 0;}
   font-size:.84rem;color:var(--navy-soft);letter-spacing:.04em;
 }
 .bed span{color:var(--sea);}
+/* ---------- photos ---------- */
+.shot{margin:15px 0 2px;}
+.shot img{
+  width:100%;display:block;border-radius:2px;
+  aspect-ratio:3/2;object-fit:cover;
+  background:var(--pearl);filter:saturate(.94);
+}
+.shot figcaption{
+  margin-top:8px;font-size:.75rem;color:var(--navy-soft);letter-spacing:.08em;
+}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:15px 0 2px;}
+.duo img{
+  width:100%;display:block;border-radius:2px;
+  aspect-ratio:4/3;object-fit:cover;
+  background:var(--pearl);filter:saturate(.94);
+}
+.stop .duo-cap{margin:8px 0 2px;font-size:.75rem;color:var(--navy-soft);letter-spacing:.08em;}
+.thumb{
+  flex:0 0 100px;width:100px;height:100px;border-radius:2px;
+  object-fit:cover;background:var(--pearl);filter:saturate(.94);
+  align-self:flex-start;margin-top:3px;
+}
+/* ---------- ghibli panel ---------- */
+.ghibli-panel{
+  margin:15px 0 2px;padding:20px 22px;border-radius:2px;
+  border:1px solid var(--line);
+  background:linear-gradient(155deg,rgba(169,215,188,.3),rgba(187,173,216,.24));
+}
+.ghibli-panel ul{list-style:none;margin:0;padding:0;}
+.ghibli-panel li{
+  font-size:.88rem;color:var(--navy);padding:5px 0 5px 18px;position:relative;
+}
+.ghibli-panel li::before{
+  content:"";position:absolute;left:0;top:14px;
+  width:6px;height:6px;border-radius:50%;background:var(--wisteria);
+}
+.ghibli-panel .why{
+  margin:12px 0 0;padding-top:12px;border-top:1px solid var(--line);
+  font-size:.79rem;color:var(--navy-soft);
+}
 /* ---------- side note ---------- */
 .cake-note{
   background:rgba(187,173,216,.16);border-left:2px solid var(--lavender);
@@ -170,6 +207,13 @@ tr.total td{
 .notes p{margin:0 0 13px;}
 .notes p:last-child{margin:0;}
 .notes b{color:var(--navy);font-weight:500;}
+/* ---------- credits ---------- */
+.credits{list-style:none;margin:0;padding:0;font-size:.82rem;color:var(--navy-soft);}
+.credits li{padding:7px 0;border-bottom:1px solid var(--line);}
+.credits li:last-child{border-bottom:none;}
+.credits b{font-weight:500;color:var(--navy);}
+.credits a{color:var(--sea);text-decoration:none;border-bottom:1px solid var(--line);}
+.credits a:hover{color:var(--wisteria);}
 footer{
   padding:52px 0 70px;text-align:center;
   font-size:.8rem;color:var(--navy-soft);letter-spacing:.1em;
@@ -180,12 +224,13 @@ footer .mark{color:var(--sage);font-size:1.1rem;letter-spacing:.3em;}
   .day{padding:24px 20px 20px;}
   .stop{gap:12px;}
   .time{flex:0 0 52px;font-size:.78rem;}
+  .stop{flex-wrap:wrap;}
+  .thumb{flex:0 0 100%;width:100%;height:130px;order:3;margin:12px 0 0;}
   th,td{padding:11px 12px;}
   .flights{padding:16px 18px;}
   .leg{gap:10px;font-size:.85rem;}
-}
-@media (prefers-reduced-motion:reduce){
-  .route{animation:none;}
+  .mapbox iframe{height:300px;}
+  .mapbox{margin-top:34px;}
 }
 </style>
 </head>
@@ -210,27 +255,16 @@ footer .mark{color:var(--sage);font-size:1.1rem;letter-spacing:.3em;}
       <div class="code">CJU → TPE</div>
     </div>
   </div>
-  <div class="island">
-    <svg viewBox="0 0 620 300" role="img" aria-label="濟州島東部三天路線圖">
-      <path class="coast" d="M112 168C96 140 128 104 176 88C232 69 300 60 364 66C436 73 500 92 528 122C552 148 540 184 500 206C452 232 380 244 304 242C222 240 140 214 112 168Z"/>
-      <path class="route" d="M268 104C334 124 420 158 486 176C474 152 456 136 432 128C376 110 316 100 268 104"/>
-      <g class="node">
-        <circle cx="486" cy="176" r="9"/><circle class="core" cx="486" cy="176" r="3.4"/>
-        <text class="num" x="486" y="204" text-anchor="middle">DAY 1</text>
-        <text x="486" y="220" text-anchor="middle">城山・海女</text>
-      </g>
-      <g class="node">
-        <circle cx="432" cy="128" r="9"/><circle class="core" cx="432" cy="128" r="3.4"/>
-        <text class="num" x="456" y="118">DAY 2</text>
-        <text x="456" y="134">吉卜力一日</text>
-      </g>
-      <g class="node">
-        <circle cx="268" cy="104" r="9"/><circle class="core" cx="268" cy="104" r="3.4"/>
-        <text class="num" x="268" y="78" text-anchor="middle">DAY 3</text>
-        <text x="268" y="94" text-anchor="middle">濟州市・返台</text>
-      </g>
-    </svg>
-    <p class="map-cap">全程東部：機場出發、繞行一圈、收回濟州市</p>
+  <div class="mapbox">
+    <iframe src="https://maps.google.com/maps?saddr=%EC%84%B1%EC%82%B0%EC%9D%BC%EC%B6%9C%EB%B4%89&amp;daddr=%EC%A0%9C%EC%A3%BC%20%EC%86%A1%EB%8B%B9%EB%A6%AC%20%EB%8F%99%ED%99%94%EB%A7%88%EC%9D%84+to:%EC%A0%9C%EC%A3%BC%EC%8B%9C%EC%B2%AD&amp;hl=zh-TW&amp;output=embed" title="濟州島東部三天行程地圖" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+  </div>
+  <p class="map-cap">全程東部：機場出發、繞行一圈、收回濟州市</p>
+  <div class="pins">
+    <a href="https://www.google.com/maps/search/?api=1&amp;query=%EC%84%B1%EC%82%B0%EC%9D%BC%EC%B6%9C%EB%B4%89" target="_blank" rel="noopener">城山日出峰</a>
+    <a href="https://www.google.com/maps/search/?api=1&amp;query=%ED%95%B4%EB%85%80%EB%B0%95%EB%AC%BC%EA%B4%80" target="_blank" rel="noopener">海女博物館</a>
+    <a href="https://www.google.com/maps/search/?api=1&amp;query=%EB%B9%84%EC%9E%90%EB%A6%BC" target="_blank" rel="noopener">榧子林</a>
+    <a href="https://www.google.com/maps/search/?api=1&amp;query=%EC%A0%9C%EC%A3%BC%20%EC%86%A1%EB%8B%B9%EB%A6%AC%20%EB%8F%99%ED%99%94%EB%A7%88%EC%9D%84" target="_blank" rel="noopener">松堂童話村</a>
+    <a href="https://www.google.com/maps/search/?api=1&amp;query=%EC%9B%94%EC%A0%95%EB%A6%AC%ED%95%B4%EB%B3%80" target="_blank" rel="noopener">月汀里海邊</a>
   </div>
 </header>
 <section>
@@ -243,31 +277,49 @@ footer .mark{color:var(--sage);font-size:1.1rem;letter-spacing:.3em;}
     <p class="day-note">落地直接往東，火山口接海女文化，傍晚回市區慶生。</p>
     <div class="stop">
       <div class="time">09:20</div>
-      <div><h4>濟州國際機場</h4><p>入境、取車。國際駕照與台灣駕照正本要一起帶。</p></div>
+      <div class="s-body"><h4>濟州國際機場</h4><p>入境、取車。國際駕照與台灣駕照正本要一起帶。</p></div>
     </div>
     <div class="stop">
       <div class="time">11:20</div>
-      <div><h4>城山日出峰</h4><p>機場往東約 1 小時 20 分。UNESCO 火山口，登頂約 30 分鐘，門票 5,000 韓元。</p></div>
+      <div class="s-body">
+        <h4>城山日出峰</h4>
+        <p>機場往東約 1 小時 20 分。UNESCO 火山口，登頂約 30 分鐘，門票 5,000 韓元。</p>
+        <figure class="shot">
+          <img src="assets/seongsan.jpg" alt="退潮後的岩灘望向城山日出峰，火山口綠色的頂稜與陰天的海" loading="lazy" decoding="async">
+          <figcaption>從山腳的岩灘看過去，火山口整個橫在海上——這是登頂之外最好的角度</figcaption>
+        </figure>
+      </div>
     </div>
     <div class="stop">
       <div class="time">13:00</div>
-      <div><h4>城山周邊海女餐廳</h4><p>山腳一帶有海女現撈的海鮮攤與餐廳，鮑魚粥、海膽湯都是這附近的招牌。先吃再去博物館，順序剛好。</p></div>
+      <div class="s-body"><h4>城山周邊海女餐廳</h4><p>山腳一帶有海女現撈的海鮮攤與餐廳，鮑魚粥、海膽湯都是這附近的招牌。先吃再去博物館，順序剛好。</p></div>
     </div>
     <div class="stop">
       <div class="time">14:30</div>
-      <div><h4>濟州海女博物館<span class="tag">海女文化</span></h4><p>城山往北約 30 分鐘，順路不繞。9:00–18:00、週一休館。常設展在一二樓，三樓有特展，紀錄片有中英韓三語，另有實物大的房舍與불턱復原、潛水工具與影像資料。慢慢逛約 1–2 小時，停車位充足。海女文化 2016 年列入 UNESCO 非物質文化遺產。</p></div>
+      <div class="s-body">
+        <h4>濟州海女博物館<span class="tag">海女文化</span></h4>
+        <p>城山往北約 30 分鐘，順路不繞。9:00–18:00、週一休館。常設展在一二樓，三樓有特展，紀錄片有中英韓三語，另有實物大的房舍與불턱復原、潛水工具與影像資料。慢慢逛約 1–2 小時，停車位充足。海女文化 2016 年列入 UNESCO 非物質文化遺產。</p>
+        <div class="duo">
+          <img src="assets/haenyeo.jpg" alt="海女穿著潛水衣，抱著網袋與橘色浮球從海邊上岸" loading="lazy" decoding="async">
+          <img src="assets/haenyeo-museum.jpg" alt="濟州海女博物館的圓形建築外觀與前庭草地" loading="lazy" decoding="async">
+        </div>
+        <p class="duo-cap">左：城山一帶真正上岸的海女／右：博物館建築本身</p>
+      </div>
     </div>
     <div class="stop">
       <div class="time">16:45</div>
-      <div><h4>咸德海邊</h4><p>回濟州市路上的白沙灣。天氣好就下車散步，風大就直接開回市區。</p></div>
+      <div class="s-body"><h4>咸德海邊</h4><p>回濟州市路上的白沙灣。天氣好就下車散步，風大就直接開回市區。</p></div>
+      <img class="thumb" src="assets/hamdeok.jpg" alt="咸德海邊的青綠色淺灣與白色沙灘" loading="lazy" decoding="async">
     </div>
     <div class="stop">
       <div class="time">17:30</div>
-      <div><h4>東門傳統市場</h4><p>開到 21:00。橘子、乾貨、伴手禮先逛一輪，順便消化一下等晚餐。</p></div>
+      <div class="s-body"><h4>東門傳統市場</h4><p>開到 21:00。橘子、乾貨、伴手禮先逛一輪，順便消化一下等晚餐。</p></div>
+      <img class="thumb" src="assets/dongmun.jpg" alt="東門市場攤位上堆滿的濟州橘子與水果" loading="lazy" decoding="async">
     </div>
     <div class="stop">
       <div class="time">19:00</div>
-      <div><h4>黑豬肉一條街<span class="tag cake">慶生晚餐</span></h4><p>市場走路就到。招牌黑豬五花一份約 22,000 韓元，含小菜與冷麵，兩人點一套剛好。配濟州橘子燒酒或橘子馬格利。週日晚上先訂位比較穩。</p></div>
+      <div class="s-body"><h4>黑豬肉一條街<span class="tag cake">慶生晚餐</span></h4><p>市場走路就到。招牌黑豬五花一份約 22,000 韓元，含小菜與冷麵，兩人點一套剛好。配濟州橘子燒酒或橘子馬格利。週日晚上先訂位比較穩。</p></div>
+      <img class="thumb" src="assets/blackpork.jpg" alt="炭火烤網上的厚切五花與梅花豬肉" loading="lazy" decoding="async">
     </div>
     <div class="bed">住宿 <span>濟州市</span>・第 1 晚</div>
   </article>
@@ -279,18 +331,41 @@ footer .mark{color:var(--sage);font-size:1.1rem;letter-spacing:.3em;}
     <p class="day-note">整趟的主場，排在週一，是三天裡人最少的一天。</p>
     <div class="stop">
       <div class="time">09:30</div>
-      <div><h4>榧子林 Bijarim</h4><p>市區出發約 40 分鐘，不用早起。千年榧樹森林，平緩步道 2.5 公里約一小時，門票 3,000 韓元。冬天林子裡擋風，比海邊舒服。</p></div>
+      <div class="s-body">
+        <h4>榧子林 Bijarim</h4>
+        <p>市區出發約 40 分鐘，不用早起。千年榧樹森林，平緩步道 2.5 公里約一小時，門票 3,000 韓元。冬天林子裡擋風，比海邊舒服。</p>
+        <figure class="shot">
+          <img src="assets/bijarim.jpg" alt="榧子林裡的紅色火山土步道，兩側是布滿苔蘚的老榧樹" loading="lazy" decoding="async">
+          <figcaption>步道鋪的是濟州的紅色火山土，走起來鬆軟，兩側全是老榧樹</figcaption>
+        </figure>
+      </div>
     </div>
     <div class="stop">
       <div class="time">11:30</div>
-      <div>
+      <div class="s-body">
         <h4>松堂童話村＋官方吉卜力展<span class="tag">主場 4–5 小時</span></h4>
         <p>官方「스튜디오 지브리展 in Jeju」在園區內的童話藝術中心，9:00–19:00、18:00 停止入場。園區三萬坪免費入場、免費停車，走不動可搭觀光小火車（成人 6,000 韓元）。龍貓專賣店、魔女宅急便 Corico 咖啡、全韓最大 Starbucks Reserve 都在這裡，午餐咖啡一起解決。週一人少，可以慢慢逛、慢慢挑周邊。</p>
+        <div class="ghibli-panel">
+          <ul>
+            <li>童話藝術中心的官方展場——場景重現與原畫，是整趟的主要目的</li>
+            <li>龍貓專賣店：韓國少數的官方店，定價接近東京，預算容易破表</li>
+            <li>魔女宅急便 Corico 咖啡：外帶一杯，園區裡邊走邊喝</li>
+            <li>全韓最大的 Starbucks Reserve：冷到受不了時的室內避難所</li>
+          </ul>
+          <p class="why">這一站沒有放照片——展覽與吉卜力的官方影像都受版權保護，不能自由使用。出發前到售票平台看官方宣傳圖最準。</p>
+        </div>
       </div>
     </div>
     <div class="stop">
       <div class="time">16:30</div>
-      <div><h4>月汀里海邊咖啡</h4><p>往北約 20 分鐘到海岸線收尾。一月風大就坐室內，找看得到海的位子。</p></div>
+      <div class="s-body">
+        <h4>月汀里海邊咖啡</h4>
+        <p>往北約 20 分鐘到海岸線收尾。一月風大就坐室內，找看得到海的位子。</p>
+        <figure class="shot">
+          <img src="assets/woljeongri-cafe.jpg" alt="月汀里海邊咖啡店的整面落地窗，窗外是沙灘與海" loading="lazy" decoding="async">
+          <figcaption>整面落地窗對著沙灘——一月坐室內看海，剛好</figcaption>
+        </figure>
+      </div>
     </div>
     <div class="bed">住宿 <span>濟州市</span>・第 2 晚（不換飯店）</div>
   </article>
@@ -302,11 +377,11 @@ footer .mark{color:var(--sage);font-size:1.1rem;letter-spacing:.3em;}
     <p class="day-note">純移動日。11:00 的飛機，早上不排行程。</p>
     <div class="stop">
       <div class="time">08:00</div>
-      <div><h4>退房・出發還車</h4><p>市區到機場約 20 分鐘，還車與退稅預留充裕時間。</p></div>
+      <div class="s-body"><h4>退房・出發還車</h4><p>市區到機場約 20 分鐘，還車與退稅預留充裕時間。</p></div>
     </div>
     <div class="stop">
       <div class="time">11:00</div>
-      <div><h4>CJU → TPE</h4><p>12:15 落地桃園。</p></div>
+      <div class="s-body"><h4>CJU → TPE</h4><p>12:15 落地桃園。</p></div>
     </div>
   </article>
   <div class="cake-note">
@@ -347,13 +422,22 @@ footer .mark{color:var(--sage);font-size:1.1rem;letter-spacing:.3em;}
 <section>
   <div class="sec-head"><h2>要注意的事</h2><div class="rule"></div></div>
   <div class="notes">
-    <p><b>南部這次不去。</b>縮成三天後，Osulloc 茶園、正房瀑布、西歸浦整段拿掉了，全程集中在東部與濟州市。好處是完全不用南下再北上，動線最短、飯店也不用換。</p>
     <p><b>一月是濟州最冷的月份。</b>均溫約 5°C，海風強、體感更低，偶爾下雪。城山日出峰和月汀里都在無遮蔽的海岸線上，防風外套、手套、暖暖包要帶足。凍到受不了時，吉卜力展和萬丈窟都是可以躲的室內點。</p>
     <p><b>回程 11:00 起飛，最後一天不排行程。</b>08:00 就要出發還車，行程重心全部放在前兩天。</p>
     <p><b>海女博物館週一休館。</b>所以只能排在 Day 1（週日），不能挪到 Day 2。這也是 Day 1 東部行程不宜再塞其他點的原因——博物館 18:00 就閉館，要留足時間。</p>
-    <p><b>大眾運輸不夠用。</b>島上東西距離大、公車班次少，這條動線基本上要自駕才順。</p>
     <p><b>展期到 2027/7/10。</b>「스튜디오 지브리展 in Jeju」不是二月底結束，時間上很寬裕。成人現場一般票約 22,000 韓元為近期資訊，出發前再上售票平台確認一次。</p>
   </div>
+</section>
+<section>
+  <div class="sec-head"><h2>圖片出處</h2><div class="rule"></div></div>
+  <ul class="credits">
+    <li><b>城山日出峰</b>・<b>海女</b> — David Lee，<a href="https://creativecommons.org/licenses/by/2.0/" rel="license noopener" target="_blank">CC BY 2.0</a>，經 Wikimedia Commons</li>
+    <li><b>榧子林</b>・<b>月汀里咖啡</b> — Sgroey，<a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license noopener" target="_blank">CC BY-SA 4.0</a>，經 Wikimedia Commons</li>
+    <li><b>海女博物館</b> — Vanbasten 23，<a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license noopener" target="_blank">CC BY-SA 3.0</a>，經 Wikimedia Commons</li>
+    <li><b>咸德海邊</b> — Thddbwnd，<a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license noopener" target="_blank">CC BY-SA 3.0</a>，經 Wikimedia Commons</li>
+    <li><b>東門市場</b> — thddbwnd，<a href="https://creativecommons.org/licenses/by/3.0/" rel="license noopener" target="_blank">CC BY 3.0</a>，經 Wikimedia Commons</li>
+    <li><b>黑豬肉</b> — eommina，<a href="https://creativecommons.org/publicdomain/zero/1.0/" rel="license noopener" target="_blank">CC0</a>，經 Wikimedia Commons</li>
+  </ul>
 </section>
 <footer>
   <div class="mark">～</div>
