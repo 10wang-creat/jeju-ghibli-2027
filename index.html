@@ -194,10 +194,11 @@ tr.total td{
   background:#fff;border:1px solid var(--line);border-radius:3px;
   padding:17px 20px;margin-bottom:11px;font-size:.93rem;
 }
-.todo b{
+.todo li > b{
   display:block;font-family:var(--serif);font-weight:600;
   font-size:.98rem;margin-bottom:4px;
 }
+.todo span b{font-weight:500;color:var(--navy);}
 .todo span{color:var(--navy-soft);font-size:.87rem;}
 /* ---------- notes ---------- */
 .notes{
@@ -265,6 +266,8 @@ footer .mark{color:var(--sage);font-size:1.1rem;letter-spacing:.3em;}
     <a href="https://www.google.com/maps/search/?api=1&amp;query=%EB%B9%84%EC%9E%90%EB%A6%BC" target="_blank" rel="noopener">榧子林</a>
     <a href="https://www.google.com/maps/search/?api=1&amp;query=%EC%A0%9C%EC%A3%BC%20%EC%86%A1%EB%8B%B9%EB%A6%AC%20%EB%8F%99%ED%99%94%EB%A7%88%EC%9D%84" target="_blank" rel="noopener">松堂童話村</a>
     <a href="https://www.google.com/maps/search/?api=1&amp;query=%EC%9B%94%EC%A0%95%EB%A6%AC%ED%95%B4%EB%B3%80" target="_blank" rel="noopener">月汀里海邊</a>
+    <a href="https://www.google.com/maps/search/?api=1&amp;query=%EB%8F%84%EB%91%90%ED%95%B4%EC%88%98%ED%8C%8C%ED%81%AC" target="_blank" rel="noopener">도두해수파크</a>
+    <a href="https://www.google.com/maps/search/?api=1&amp;query=Ocean+Suites+Jeju+Hotel" target="_blank" rel="noopener">海洋套房酒店</a>
   </div>
 </header>
 <section>
@@ -321,7 +324,7 @@ footer .mark{color:var(--sage);font-size:1.1rem;letter-spacing:.3em;}
       <div class="s-body"><h4>黑豬肉一條街<span class="tag cake">慶生晚餐</span></h4><p>市場走路就到。招牌黑豬五花一份約 22,000 韓元，含小菜與冷麵，兩人點一套剛好。配濟州橘子燒酒或橘子馬格利。週日晚上先訂位比較穩。</p></div>
       <img class="thumb" src="assets/blackpork.jpg" alt="炭火烤網上的厚切五花與梅花豬肉" loading="lazy" decoding="async">
     </div>
-    <div class="bed">住宿 <span>濟州市</span>・第 1 晚</div>
+    <div class="bed">住宿 <span>濟州島海洋套房酒店</span>・塔洞海邊・第 1 晚</div>
   </article>
   <article class="day highlight">
     <div class="day-top">
@@ -367,7 +370,14 @@ footer .mark{color:var(--sage);font-size:1.1rem;letter-spacing:.3em;}
         </figure>
       </div>
     </div>
-    <div class="bed">住宿 <span>濟州市</span>・第 2 晚（不換飯店）</div>
+    <div class="stop">
+      <div class="time">18:00</div>
+      <div class="s-body">
+        <h4>도두해수파크<span class="tag">海水湯</span></h4>
+        <p>月汀里沿北海岸往西約 50 分鐘，在機場旁的道頭洞。用的是海水，24 小時營業，桑拿 10,000 韓元、加汗蒸幕 14,000 韓元，誰都能進、不用預約。走了一整天，冬天泡完再回飯店剛好。韓國大眾湯是裸湯、男女分開，喝過酒不能入場，所以排在晚餐之前；泡完開回塔洞飯店約 15 分鐘，晚餐回市區再吃。</p>
+      </div>
+    </div>
+    <div class="bed">住宿 <span>濟州島海洋套房酒店</span>・第 2 晚（不換飯店）</div>
   </article>
   <article class="day">
     <div class="day-top">
@@ -397,22 +407,23 @@ footer .mark{color:var(--sage);font-size:1.1rem;letter-spacing:.3em;}
     </thead>
     <tbody>
       <tr><td>來回機票<small>台灣虎航直飛，1/17–19 實際票價</small></td><td class="num">6,778</td></tr>
-      <tr><td>住宿 2 晚<small>濟州市，兩人分攤</small></td><td class="num">3,300</td></tr>
+      <tr><td>住宿 2 晚<small>濟州島海洋套房酒店，兩人分攤（Booking 報價 NT$5,278）</small></td><td class="num">2,650</td></tr>
       <tr><td>租車・油資・停車<small>3 天小型自排，含保險</small></td><td class="num">2,600</td></tr>
       <tr><td>餐食 3 天<small>含慶生晚餐</small></td><td class="num">3,000</td></tr>
       <tr><td>門票<small>吉卜力展 22,000 韓元＋城山、榧子林、海女博物館</small></td><td class="num">950</td></tr>
       <tr><td>吉卜力周邊・伴手禮<small>變數最大，龍貓店定價接近東京</small></td><td class="num">3,000</td></tr>
+      <tr><td>도두해수파크<small>桑拿 10,000 韓元；加汗蒸幕 14,000 韓元</small></td><td class="num">250</td></tr>
       <tr><td>eSIM・雜支</td><td class="num">900</td></tr>
-      <tr class="total"><td>合計</td><td class="num">約 20,500</td></tr>
+      <tr class="total"><td>合計</td><td class="num">約 20,100</td></tr>
     </tbody>
   </table>
-  <p class="budget-note">比四天版省下約 NT$3,700，主要是一晚住宿與一天租車。機票已確認，其餘為估算；吉卜力周邊是最容易破表的一項，先抓 3,000 是保守估法。</p>
+  <p class="budget-note">機票與住宿是實際報價，其餘為估算。住宿比原先抓的每人 3,300 省下 650，多出來的空間剛好吃掉泡湯那筆。吉卜力周邊仍是最容易破表的一項，先抓 3,000 是保守估法。</p>
 </section>
 <section>
   <div class="sec-head"><h2>還要訂什麼</h2><div class="rule"></div></div>
   <ul class="todo">
     <li><b>機票・1/17–1/19</b><span>台灣虎航去程 06:30、回程 11:00，每人 NT$6,778。票價已確認，開票即可。</span></li>
-    <li><b>住宿 2 晚</b><span>濟州市，1/17–18。全程不換飯店。</span></li>
+    <li><b>訂房・濟州島海洋套房酒店</b><span>1/17–18 兩晚，塔洞海邊，四星海景房，Booking 報價 NT$5,278（8.4 分、1,503 則評價）。有免費室內停車場，走到黑豬肉一條街約 11 分鐘。<b>務必選免費取消</b>——離入住還有 17 個月，價格一定會變，接近再回頭比一次。早餐一人 24,000 韓元，不用加。</span></li>
     <li><b>吉卜力展門票・1/18</b><span>NOL 티켓（Interpark）、팝콘D플레이、WAUG 都可線上訂日期票，現場掃 QR 入場。Interpark 早鳥有 10% 折扣。</span></li>
     <li><b>租車 1/17–1/19</b><span>機場取還。一月路面可能結冰，取車時確認雪胎或四驅。</span></li>
     <li><b>國際駕照</b><span>監理站當場可辦。台灣駕照正本要一起帶，缺一不可租車。</span></li>
