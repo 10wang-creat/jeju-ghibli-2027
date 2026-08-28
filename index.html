@@ -179,6 +179,28 @@ section{padding:60px 0;}
   margin:12px 0 0;padding-top:12px;border-top:1px solid var(--line);
   font-size:.79rem;color:var(--navy-soft);
 }
+/* ---------- info card ---------- */
+.card{
+  margin:15px 0 2px;padding:18px 20px;border-radius:2px;
+  border:1px solid var(--line);background:rgba(170,201,232,.13);
+}
+.card .row{display:flex;flex-wrap:wrap;gap:10px 26px;margin-bottom:13px;}
+.card .row div{font-size:.86rem;color:var(--navy);font-weight:400;}
+.card .row b{
+  display:block;font-family:var(--sans);font-weight:500;
+  font-size:.68rem;letter-spacing:.16em;color:var(--wisteria);margin-bottom:1px;
+}
+.card ul{list-style:none;margin:0;padding:0;}
+.card li{font-size:.85rem;color:var(--navy-soft);padding:4px 0 4px 16px;position:relative;}
+.card li::before{
+  content:"";position:absolute;left:0;top:13px;
+  width:5px;height:5px;border-radius:50%;background:var(--sage);
+}
+.card .go{
+  display:inline-block;margin-top:13px;font-size:.78rem;
+  color:var(--sea);text-decoration:none;border-bottom:1px solid var(--line);
+}
+.card .go:hover{color:var(--wisteria);}
 /* ---------- side note ---------- */
 .cake-note{
   background:rgba(187,173,216,.16);border-left:2px solid var(--lavender);
@@ -346,6 +368,20 @@ footer .mark{color:var(--sage);font-size:1.1rem;letter-spacing:.3em;}
       <img class="thumb" src="assets/blackpork.jpg" alt="炭火烤網上的厚切五花與梅花豬肉" loading="lazy" decoding="async">
     </div>
     <div class="bed">住宿 <span>濟州島海洋套房酒店</span>・塔洞海邊・第 1 晚</div>
+    <div class="card">
+      <div class="row">
+        <div><b>評分</b>8.4／10（1,503 則）</div>
+        <div><b>兩晚</b>NT$5,278</div>
+        <div><b>停車</b>免費室內停車場</div>
+        <div><b>走到黑豬肉街</b>約 11 分鐘</div>
+      </div>
+      <ul>
+        <li>四星，房型為海景或市景雙人房，塔洞海邊那側看得到海</li>
+        <li>早餐一人 24,000 韓元、不含在房價裡——這價位不如去東門市場吃</li>
+        <li>市區停車位緊，室內停車場是選這間最實際的理由</li>
+      </ul>
+      <a class="go" href="https://www.booking.com/hotel/kr/ocean-suites-jeju-jeju.html" target="_blank" rel="noopener">在 Booking 看房間照片與訂房 →</a>
+    </div>
   </article>
   <article class="day highlight">
     <div class="day-top">
@@ -395,7 +431,21 @@ footer .mark{color:var(--sage);font-size:1.1rem;letter-spacing:.3em;}
       <div class="time">18:00</div>
       <div class="s-body">
         <h4>도두해수파크<span class="tag">海水湯</span></h4>
-        <p>月汀里沿北海岸往西約 50 分鐘，在機場旁的道頭洞。用的是海水，24 小時營業，桑拿 10,000 韓元、加汗蒸幕 14,000 韓元，誰都能進、不用預約。走了一整天，冬天泡完再回飯店剛好。韓國大眾湯是裸湯、男女分開，喝過酒不能入場，所以排在晚餐之前；泡完開回塔洞飯店約 15 分鐘，晚餐回市區再吃。</p>
+        <p>月汀里沿北海岸往西約 50 分鐘，在機場旁的道頭洞。走了一整天，冬天泡完再回飯店剛好；泡完開回塔洞飯店約 15 分鐘，晚餐回市區再吃。</p>
+        <div class="card">
+          <div class="row">
+            <div><b>桑拿</b>10,000 韓元</div>
+            <div><b>汗蒸幕</b>14,000 韓元</div>
+            <div><b>營業</b>24 小時</div>
+            <div><b>離飯店</b>車程 15 分鐘</div>
+          </div>
+          <ul>
+            <li>用的是海水，誰都能進、不用預約，不是飯店住客專屬</li>
+            <li>裸湯、男女分開——這是韓國大眾湯的常態，不用帶泳衣</li>
+            <li>喝過酒不能入場，所以這站排在晚餐之前</li>
+          </ul>
+          <a class="go" href="https://seawaterpark.com/charge" target="_blank" rel="noopener">官網價目表 →</a>
+        </div>
       </div>
     </div>
     <div class="bed">住宿 <span>濟州島海洋套房酒店</span>・第 2 晚（不換飯店）</div>
