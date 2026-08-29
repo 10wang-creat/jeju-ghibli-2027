@@ -255,6 +255,20 @@ tr.total td{
 .todo span a{color:var(--sea);text-decoration:none;border-bottom:1px solid var(--line);}
 .todo span a:hover{color:var(--wisteria);}
 .todo span{color:var(--navy-soft);font-size:.87rem;}
+/* ---------- todo tiers ---------- */
+.dday{margin:-22px 0 30px;font-size:.85rem;color:var(--navy-soft);letter-spacing:.06em;}
+.dday b{color:var(--wisteria);font-weight:500;}
+.tier{
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  margin:34px 0 13px;font-size:.84rem;color:var(--navy-soft);
+}
+.tier:first-of-type{margin-top:0;}
+.tier-tag{
+  font-family:var(--serif);font-weight:600;font-size:.76rem;letter-spacing:.16em;
+  color:#fff;background:var(--navy);padding:4px 13px;border-radius:2px;white-space:nowrap;
+}
+.tier.mid .tier-tag{background:var(--wisteria);}
+.tier.late .tier-tag{background:#6F8C7C;}
 /* ---------- notes ---------- */
 .notes{
   background:rgba(170,201,232,.14);border-radius:3px;
@@ -551,16 +565,27 @@ footer .mark{color:var(--sage);font-size:1.1rem;letter-spacing:.3em;}
 </section>
 <section>
   <div class="sec-head"><h2>還要訂什麼</h2><div class="rule"></div></div>
+  <p class="dday">距離出發還有 <b><span id="dday">—</span></b>，下面依「等下去會不會虧」排序。</p>
+
+  <div class="tier"><span class="tier-tag">現在</span>不可逆，或等下去只會變貴</div>
   <ul class="todo">
-    <li><b>機票・1/17–1/19</b><span>台灣虎航去程 06:30、回程 11:00，每人 NT$6,778。票價已確認，開票即可。</span></li>
-    <li><b>訂房・濟州島海洋套房酒店</b><span>1/17–18 兩晚，塔洞海邊，四星海景房，Booking 報價 NT$5,278（8.4 分、1,503 則評價）。有免費室內停車場，走到黑豬肉一條街約 7 分鐘。<b>務必選免費取消</b>。早餐一人 24,000 韓元，不用加。</span></li>
-    <li><b>吉卜力展門票</b><span>成人 22,000 韓元、國高中生 20,000、國小 17,000、學齡前 15,000。<b>是常時票、不綁日期</b>，先買好哪天去都能用，不必指定 1/18。<b>只收信用卡</b>，現場不能付現。<br>
-      　<a href="https://tickets.interpark.com/goods/26007290" target="_blank" rel="noopener">NOL Ticket 第三波早鳥 9 折</a>——使用期限到 2027/2/28，剛好涵蓋這趟，NOL 獨家<br>
+    <li><b>開機票・1/17–1/19</b><span>台灣虎航去程 06:30、回程 11:00，每人 NT$6,778。<b>六件事裡唯一不可退改的</b>，位子賣掉就沒了、票價只會往上。票價已確認，直接開。</span></li>
+    <li><b>訂房・濟州島海洋套房酒店</b><span>1/17–18 兩晚，塔洞海邊，四星海景房，Booking 報價 NT$5,278（8.4 分、1,503 則評價）。有免費室內停車場，走到黑豬肉一條街約 7 分鐘、東門市場 12 分鐘。<b>選免費取消就等於零風險卡位</b>——先訂起來，之後看到更好的再換。早餐一人 24,000 韓元，不用加。</span></li>
+  </ul>
+
+  <div class="tier mid"><span class="tier-tag">這個月</span>有數量或波次限制，但買錯可以退</div>
+  <ul class="todo">
+    <li><b>租車・1/17–1/19</b><span>機場取還。<b>一月路面可能結冰，取車時要確認雪胎或四驅</b>——這種車一月本來就少，晚訂只能將就。多數方案可免費取消。Booking 的租車搜尋目前會跳錯誤，直接開網站操作或另找租車平台比價。</span></li>
+    <li><b>吉卜力展門票</b><span>成人 22,000 韓元、國高中生 20,000、國小 17,000、學齡前 15,000。<b>是常時票、不綁日期</b>，先買好哪天去都能用，票期到 2027/7/11。<b>只收信用卡</b>，現場不能付現。早鳥是分波次的，這一波賣完就換下一波，越晚越沒折扣。<br>
+      　<a href="https://tickets.interpark.com/goods/26007290" target="_blank" rel="noopener">NOL Ticket 第三波早鳥 9 折</a>——使用期限到 2027/2/28，涵蓋這趟，NOL 獨家<br>
       　<a href="https://nol.yanolja.com/ticket/products/26009468" target="_blank" rel="noopener">NOL Ticket 一般票</a>／<a href="https://www.popcondplay.com/reserve/view/72" target="_blank" rel="noopener">Popcorn D Play</a><br>
       　訂後 7 天內取消全額退款；超過就收票價 10%。</span></li>
-    <li><b>租車 1/17–1/19</b><span>機場取還。一月路面可能結冰，取車時確認雪胎或四驅。</span></li>
-    <li><b>國際駕照</b><span>監理站當場可辦。台灣駕照正本要一起帶，缺一不可租車。</span></li>
-    <li><b>慶生晚餐訂位・1/17</b><span>豚香氣，+82 64-724-0228。週日晚上，想坐得舒服就先訂。</span></li>
+  </ul>
+
+  <div class="tier late"><span class="tier-tag">行前一個月</span>太早做沒有意義</div>
+  <ul class="todo">
+    <li><b>國際駕照</b><span>監理站當場核發，文件備齊約半小時到一小時，規費 NT$250，效期三年。不會缺貨也不會漲價，所以不急——但要先去拍兩吋照片，別拖到出發前一週。<b>台灣駕照正本要一起帶去韓國</b>，只有國際駕照租不到車。</span></li>
+    <li><b>慶生晚餐訂位・1/17</b><span>豚香氣，+82 64-724-0228。餐廳通常只開放一個月內的訂位，太早打也沒用。出發前兩三週再訂，記得說是週日晚上。</span></li>
   </ul>
 </section>
 <section>
@@ -588,6 +613,14 @@ footer .mark{color:var(--sage);font-size:1.1rem;letter-spacing:.3em;}
   濟州吉卜力三日．2027.01.17–19
 </footer>
 </div>
+<script>
+(function(){
+  var el=document.getElementById('dday'); if(!el) return;
+  var go=new Date(2027,0,17), now=new Date();
+  var d=Math.ceil((go-new Date(now.getFullYear(),now.getMonth(),now.getDate()))/86400000);
+  el.textContent = d>0 ? (d+' 天（約 '+(Math.round(d/30.44*10)/10)+' 個月）') : (d===0 ? '今天出發' : '已經出發');
+})();
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" integrity="sha512-puJW3E/qXDqYp9IfhAI54BJEaWIfloJ7JWs7OeD5i6ruC9JZL1gERT1wjtwXFlh7CjE7ZJ+/vcRZRkIYIb6p4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
 (function(){
